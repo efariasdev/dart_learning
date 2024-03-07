@@ -1,6 +1,6 @@
 void main() {
   /// Constructors
-  print('Constructors:');
+  print('--Constructors--');
 
   /// List.empty({bool growable = false})
   /// Creates a new empty list.
@@ -39,7 +39,7 @@ void main() {
   print('List.unmodifiable: $unmodifiableList');
 
   /// Properties
-  print('\nProperties:');
+  print('\n--Properties--');
 
   final exampleList = <String>['a', 'b', 'c'];
 
@@ -82,4 +82,59 @@ void main() {
   /// single → E
   /// Checks that this iterable has only one element, and returns that element.
   // print('single: ${exampleList.single}'); // This line throws an error because the list has more than one element
+
+  /// Methods
+  print('\n--Methods--');
+
+  /// add(E value) → void
+  /// Adds value to the end of this list, extending the length by one.
+  print('add:');
+  print(' before: $exampleList');
+  exampleList.add('d');
+  print(' after: $exampleList');
+
+  /// addAll(Iterable<E> iterable) → void
+  /// Appends all objects of iterable to the end of this list.
+  print('addAll:');
+  print(' before: $exampleList');
+  exampleList.addAll(['e', 'f']);
+  print(' after: $exampleList');
+
+  /// any(bool test(E element)) → bool
+  /// Checks whether any element of this iterable satisfies test.
+  print(
+      "any: is any element in the list is equal to 'c'? ${exampleList.any((e) => e == 'c')}");
+  print(
+      'any: is any element in the list is equal to 1? ${exampleList.any((e) => e == 1)}');
+
+  /// asMap() → Map<int, E>
+  /// An unmodifiable Map view of this list.
+  print('asMap: ${exampleList.asMap()}');
+
+  /// cast<R>() → List<R>
+  /// Returns a view of this list as a list of R instances.
+  /// Create a list of one type from a list of another type, taking into account its restrictions.
+  List<String> stringList = ['1', '2', '3'];
+  List<Object> castList = stringList.cast<Object>();
+  print('cast: $castList');
+
+  /// clear() → void
+  /// Removes all objects from this list; the length of the list becomes zero.
+  print('clear:');
+  print(' before: $exampleList');
+  exampleList.clear();
+  print(' after: $exampleList');
+
+  /// contains(Object? element) → bool
+  /// Whether the collection contains an element equal to element.
+  exampleList.addAll(['a', 'b', 'c', 'd', 'e', 'f']);
+  print(
+      "contains: does the list contain an element equal to 'b'? ${exampleList.contains('b')}");
+  print(
+      "contains: does the list contain an element equal to 'g'? ${exampleList.contains('g')}");
+
+  /// elementAt(int index) → E
+  /// Returns the indexth element.
+  print(
+      "elementAt: the index of the 'e' element is ${exampleList.indexOf('e')}");
 }
